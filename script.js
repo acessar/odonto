@@ -1,5 +1,126 @@
 // ===============================================
-// CARROSSEL AUTOMÁTICO - HERO
+// CARROSSÉIS AUTOMÁTICOS - CONFIGURAÇÃO GERAL
+// ===============================================
+const carouselConfig = {
+    autoplayInterval: 3000,
+    transitionDuration: 600
+};
+
+// ===============================================
+// GERENCIADOR DE CARROSSEL AUTOMÁTICO
+// ===============================================
+class CarouselManager {
+    constructor(carouselId, autoplay = true) {
+        this.carousel = document.getElementById(carouselId);
+        this.carouselId = carouselId;
+        this.autoplay = autoplay;
+        this.currentIndex = 0;
+        this.autoplayInterval = null;
+        this.isScrolling = false;
+        
+        if (this.carousel) {
+            this.init();
+        }
+    }
+
+    init() {
+        if (this.autoplay) {
+            this.startAutoplay();
+        }
+
+        // Parar autoplay ao interagir manualmente
+        this.carousel.addEventListener('scroll', () => {
+            this.isScrolling = true;
+            clearInterval(this.autoplayInterval);
+            
+            // Retomar autoplay após 5 segundos de inatividade
+            setTimeout(() => {
+                this.isScrolling = false;
+                if (this.autoplay) {
+                    this.startAutoplay();
+                }
+            }, 5000);
+        });
+
+        // Touch events para sincronizar com botões
+        this.carousel.addEventListener('scroll', () => this.updateButtonStates());
+    }
+
+    startAutoplay() {
+        clearInterval(this.autoplayInterval);
+        this.autoplayInterval = setInterval(() => {
+            if (!this.isScrolling) {
+                this.nextSlide();
+            }
+        }, carouselConfig.autoplayInterval);
+    }
+
+    nextSlide() {
+        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
+        if (items.length === 0) return;
+
+        this.currentIndex = (this.currentIndex + 1) % items.length;
+        const item = items[this.currentIndex];
+        
+        item.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+        });
+
+        this.updateButtonStates();
+    }
+
+    prevSlide() {
+        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
+        if (items.length === 0) return;
+
+        this.currentIndex = (this.currentIndex - 1 + items.length) % items.length;
+        const item = items[this.currentIndex];
+        
+        item.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'start'
+        });
+
+        this.updateButtonStates();
+    }
+
+    updateButtonStates() {
+        const buttons = document.querySelectorAll(`.carousel-btn[data-carousel="${this.carouselId}"]`);
+        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
+        
+        if (items.length === 0) return;
+
+        // Detectar qual item está visível
+        let visibleIndex = 0;
+        items.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            const carouselRect = this.carousel.getBoundingClientRect();
+            
+            if (rect.left >= carouselRect.left && rect.left < carouselRect.right) {
+                visibleIndex = index;
+            }
+        });
+
+        this.currentIndex = visibleIndex;
+
+        // Atualizar estados dos botões
+        buttons.forEach(btn => {
+            if (btn.classList.contains('carousel-prev')) {
+                btn.disabled = visibleIndex === 0;
+                btn.style.opacity = visibleIndex === 0 ? '0.3' : '0.7';
+            } else if (btn.classList.contains('carousel-next')) {
+                btn.disabled = visibleIndex === items.length - 1;
+                btn.style.opacity = visibleIndex === items.length - 1 ? '0.3' : '0.7';
+            }
+        });
+    }
+}
+
+// ===============================================
+// CARROSSEL HERO (COM SLIDE AUTOMÁTICO)
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
     const heroSlides = document.querySelectorAll('.hero-slide');
@@ -19,8 +140,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (heroSlides.length > 0) {
-        setInterval(nextSlide, 5000);
+        setInterval(nextSlide, carouselConfig.autoplayInterval);
     }
+});
+
+// ===============================================
+// INICIALIZAR TODOS OS CARROSSEIS
+// ===============================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Criar instâncias de gerenciadores de carrossel
+    const carousels = [
+        new CarouselManager('problemas-carousel', true),
+        new CarouselManager('planos-carousel', true),
+        new CarouselManager('beneficios-carousel', true),
+        new CarouselManager('testimonios-carousel', true)
+    ];
+
+    // ===============================================
+    // BOTÕES DE NAVEGAÇÃO DOS CARROSSEIS
+    // ===============================================
+    const prevButtons = document.querySelectorAll('.carousel-prev');
+    const nextButtons = document.querySelectorAll('.carousel-next');
+
+    prevButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const carouselId = btn.getAttribute('data-carousel');
+            const manager = carousels.find(c => c.carouselId === carouselId);
+            if (manager) {
+                manager.prevSlide();
+            }
+        });
+    });
+
+    nextButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const carouselId = btn.getAttribute('data-carousel');
+            const manager = carousels.find(c => c.carouselId === carouselId);
+            if (manager) {
+                manager.nextSlide();
+            }
+        });
+    });
+
+    // Inicializar estados dos botões
+    carousels.forEach(carousel => {
+        carousel.updateButtonStates();
+    });
 });
 
 // ===============================================
@@ -274,10 +441,11 @@ document.addEventListener('DOMContentLoaded', function() {
             heroBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
         }
         
-        // Parallax na seção sobre
-        const sobreImage = document.querySelector('.sobre-image');
-        if (sobreImage && isElementInViewport(sobreImage)) {
-            sobreImage.style.transform = `translateY(${(scrollPosition - sobreImage.offsetTop + window.innerHeight) * 0.1}px)`;
+        // Parallax na seção sobre (FIXO - sem parallax vertical)
+        const sobreImageWrapper = document.querySelector('.sobre-image-wrapper');
+        if (sobreImageWrapper && isElementInViewport(sobreImageWrapper)) {
+            // Manter a imagem sempre alinhada ao topo do wrapper
+            sobreImageWrapper.style.transform = 'none';
         }
     });
 });
@@ -391,7 +559,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // LOG DE SUCESSO
 // ===============================================
 console.log('%c✅ SmileCare Premium JavaScript Carregado com Sucesso!', 'color: #00a8cc; font-size: 14px; font-weight: bold;');
-console.log('%c✅ Carrossel Hero funcionando!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrosseis automáticos funcionando (3s)!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Botões de navegação sincronizados!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ FAQ Accordion funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Menu Hamburger funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Animações responsivas ativas!', 'color: #00d9ff; font-size: 12px;');

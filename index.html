@@ -45,7 +45,7 @@
         </g>
     </svg>
 
-    <div class="hero-carousel">
+    <div class="hero-carousel" id="heroCarousel">
         <img src="https://i.postimg.cc/qR8H2m19/IMG-1232.jpg" alt="SmileCare 1" class="hero-slide active">
         <img src="https://i.postimg.cc/264NnHHN/IMG-1231.jpg" alt="SmileCare 2" class="hero-slide">
         <img src="https://i.postimg.cc/W3Mc099P/IMG-1230.jpg" alt="SmileCare 3" class="hero-slide">
@@ -224,160 +224,164 @@
         </div>
     </div>
 
-    <div class="problemas-carousel">
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="dentGradient1c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#f2f2f2;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse cx="50" cy="68" rx="22" ry="10" fill="#d48080"/>
-                    <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 62 Q62 68 50 70 Q38 68 38 62 Z" fill="url(#dentGradient1c)" stroke="#c0c0c0" stroke-width="1.5"/>
-                    <ellipse cx="50" cy="42" rx="10" ry="13" fill="#704000" opacity="0.75"/>
-                    <path d="M44 38 Q50 42 56 40" fill="#5c3200" opacity="0.6" stroke="none"/>
-                    <path d="M42 62 L40 75 Q50 77 60 75 L58 62" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
-                    <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
-                </svg>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-prev" data-carousel="problemas-carousel">‹</button>
+        <div class="problemas-carousel" id="problemas-carousel">
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dentGradient1c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#f2f2f2;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="50" cy="68" rx="22" ry="10" fill="#d48080"/>
+                        <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 62 Q62 68 50 70 Q38 68 38 62 Z" fill="url(#dentGradient1c)" stroke="#c0c0c0" stroke-width="1.5"/>
+                        <ellipse cx="50" cy="42" rx="10" ry="13" fill="#704000" opacity="0.75"/>
+                        <path d="M44 38 Q50 42 56 40" fill="#5c3200" opacity="0.6" stroke="none"/>
+                        <path d="M42 62 L40 75 Q50 77 60 75 L58 62" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
+                        <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>Cárie Dentária</h3>
+                <p>Destruição do dente causada por ácidos de bactérias. Tratamos com restaurações precisas.</p>
             </div>
-            <h3>Cárie Dentária</h3>
-            <p>Destruição do dente causada por ácidos de bactérias. Tratamos com restaurações precisas.</p>
-        </div>
 
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="dentGradient2c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse cx="50" cy="68" rx="22" ry="10" fill="#d48080"/>
-                    <path d="M38 35 Q38 28 50 26 Q62 28 62 35 L62 60 Q62 67 50 68 Q38 67 38 60 Z" fill="url(#dentGradient2c)" stroke="#b8b8b8" stroke-width="1.5"/>
-                    <path d="M40 33 L48 32 L50 33 L52 32 L60 34" stroke="#a0a0a0" stroke-width="1.2" fill="none" opacity="0.7"/>
-                    <path d="M42 60 L40 73 Q50 75 60 73 L58 60" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
-                    <line x1="42" y1="38" x2="40" y2="48" stroke="#999" stroke-width="0.8" opacity="0.5"/>
-                    <line x1="58" y1="38" x2="60" y2="48" stroke="#999" stroke-width="0.8" opacity="0.5"/>
-                    <ellipse cx="44" cy="35" rx="2.5" ry="4" fill="#fff" opacity="0.4"/>
-                </svg>
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dentGradient2c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="50" cy="68" rx="22" ry="10" fill="#d48080"/>
+                        <path d="M38 35 Q38 28 50 26 Q62 28 62 35 L62 60 Q62 67 50 68 Q38 67 38 60 Z" fill="url(#dentGradient2c)" stroke="#b8b8b8" stroke-width="1.5"/>
+                        <path d="M40 33 L48 32 L50 33 L52 32 L60 34" stroke="#a0a0a0" stroke-width="1.2" fill="none" opacity="0.7"/>
+                        <path d="M42 60 L40 73 Q50 75 60 73 L58 60" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
+                        <line x1="42" y1="38" x2="40" y2="48" stroke="#999" stroke-width="0.8" opacity="0.5"/>
+                        <line x1="58" y1="38" x2="60" y2="48" stroke="#999" stroke-width="0.8" opacity="0.5"/>
+                        <ellipse cx="44" cy="35" rx="2.5" ry="4" fill="#fff" opacity="0.4"/>
+                    </svg>
+                </div>
+                <h3>Bruxismo</h3>
+                <p>Ranger ou apertar os dentes à noite. Protetor noturno personalizado evita danos.</p>
             </div>
-            <h3>Bruxismo</h3>
-            <p>Ranger ou apertar os dentes à noite. Protetor noturno personalizado evita danos.</p>
-        </div>
 
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="dentGradient3c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d8d8d8;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse cx="50" cy="68" rx="24" ry="12" fill="#c85555"/>
-                    <path d="M30 65 Q30 52 36 45 Q40 42 50 42 Q60 42 64 45 Q70 52 70 65" fill="#d96666" opacity="0.9"/>
-                    <circle cx="38" cy="58" r="2.5" fill="#dd0000"/>
-                    <circle cx="62" cy="60" r="2" fill="#dd0000"/>
-                    <circle cx="50" cy="65" r="3" fill="#cc0000" opacity="0.7"/>
-                    <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 58 Q62 65 50 66 Q38 65 38 58 Z" fill="url(#dentGradient3c)" stroke="#c0c0c0" stroke-width="1.5"/>
-                    <path d="M40 58 Q50 62 60 58" stroke="#cc3333" stroke-width="1.5" fill="none" opacity="0.8"/>
-                    <path d="M42 58 L40 72 Q50 74 60 72 L58 58" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
-                    <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
-                </svg>
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dentGradient3c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d8d8d8;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="50" cy="68" rx="24" ry="12" fill="#c85555"/>
+                        <path d="M30 65 Q30 52 36 45 Q40 42 50 42 Q60 42 64 45 Q70 52 70 65" fill="#d96666" opacity="0.9"/>
+                        <circle cx="38" cy="58" r="2.5" fill="#dd0000"/>
+                        <circle cx="62" cy="60" r="2" fill="#dd0000"/>
+                        <circle cx="50" cy="65" r="3" fill="#cc0000" opacity="0.7"/>
+                        <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 58 Q62 65 50 66 Q38 65 38 58 Z" fill="url(#dentGradient3c)" stroke="#c0c0c0" stroke-width="1.5"/>
+                        <path d="M40 58 Q50 62 60 58" stroke="#cc3333" stroke-width="1.5" fill="none" opacity="0.8"/>
+                        <path d="M42 58 L40 72 Q50 74 60 72 L58 58" fill="#d4a574" stroke="#c4975c" stroke-width="1"/>
+                        <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>Gengivite</h3>
+                <p>Inflamação das gengivas com sangramento. Limpeza profunda restaura saúde periodontal.</p>
             </div>
-            <h3>Gengivite</h3>
-            <p>Inflamação das gengivas com sangramento. Limpeza profunda restaura saúde periodontal.</p>
-        </div>
 
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="dentGradient4c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d8d8d8;stop-opacity:1" />
-                        </linearGradient>
-                        <linearGradient id="raizGradient2c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#E8D7B8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#D4B896;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse cx="50" cy="66" rx="22" ry="10" fill="#d48080"/>
-                    <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 56 Q62 63 50 64 Q38 63 38 56 Z" fill="url(#dentGradient4c)" stroke="#c0c0c0" stroke-width="1.5"/>
-                    <path d="M40 56 Q40 58 42 66 L50 68 L58 66 Q60 58 60 56" fill="url(#raizGradient2c)" stroke="#c4975c" stroke-width="1.2" opacity="0.9"/>
-                    <line x1="42" y1="60" x2="45" y2="66" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
-                    <line x1="50" y1="60" x2="50" y2="68" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
-                    <line x1="58" y1="60" x2="55" y2="66" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
-                    <g stroke="#ff6b6b" stroke-width="1" opacity="0.7" stroke-linecap="round">
-                        <line x1="45" y1="50" x2="42" y2="62"/>
-                        <line x1="50" y1="48" x2="50" y2="68"/>
-                        <line x1="55" y1="50" x2="58" y2="62"/>
-                    </g>
-                    <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
-                </svg>
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dentGradient4c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d8d8d8;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="raizGradient2c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E8D7B8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#D4B896;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="50" cy="66" rx="22" ry="10" fill="#d48080"/>
+                        <path d="M38 28 Q38 22 50 20 Q62 22 62 28 L62 56 Q62 63 50 64 Q38 63 38 56 Z" fill="url(#dentGradient4c)" stroke="#c0c0c0" stroke-width="1.5"/>
+                        <path d="M40 56 Q40 58 42 66 L50 68 L58 66 Q60 58 60 56" fill="url(#raizGradient2c)" stroke="#c4975c" stroke-width="1.2" opacity="0.9"/>
+                        <line x1="42" y1="60" x2="45" y2="66" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
+                        <line x1="50" y1="60" x2="50" y2="68" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
+                        <line x1="58" y1="60" x2="55" y2="66" stroke="#c4975c" stroke-width="0.7" opacity="0.6"/>
+                        <g stroke="#ff6b6b" stroke-width="1" opacity="0.7" stroke-linecap="round">
+                            <line x1="45" y1="50" x2="42" y2="62"/>
+                            <line x1="50" y1="48" x2="50" y2="68"/>
+                            <line x1="55" y1="50" x2="58" y2="62"/>
+                        </g>
+                        <ellipse cx="44" cy="32" rx="3" ry="5" fill="#fff" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>Sensibilidade Dentária</h3>
+                <p>Dor ao consumir alimentos quentes ou frios. Tratamentos dessensibilizantes trazem alívio.</p>
             </div>
-            <h3>Sensibilidade Dentária</h3>
-            <p>Dor ao consumir alimentos quentes ou frios. Tratamentos dessensibilizantes trazem alívio.</p>
-        </div>
 
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <radialGradient id="ferida2c" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" style="stop-color:#ff7f7f;stop-opacity:0.9" />
-                            <stop offset="70%" style="stop-color:#ff4444;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#cc0000;stop-opacity:0.7" />
-                        </radialGradient>
-                    </defs>
-                    <ellipse cx="50" cy="52" rx="18" ry="16" fill="#F5B8B8" opacity="0.7"/>
-                    <path d="M35 50 Q35 42 42 38 Q50 36 58 38 Q65 42 65 50" fill="#f4a9a9" opacity="0.8"/>
-                    <ellipse cx="50" cy="46" rx="7" ry="6" fill="url(#ferida2c)"/>
-                    <ellipse cx="50" cy="46" rx="7" ry="6" fill="none" stroke="#ff3333" stroke-width="1.2" opacity="0.9"/>
-                    <ellipse cx="50" cy="46" rx="3.5" ry="3" fill="#ffdddd" opacity="0.8"/>
-                    <ellipse cx="38" cy="56" rx="4.5" ry="3.5" fill="url(#ferida2c)"/>
-                    <ellipse cx="38" cy="56" rx="4.5" ry="3.5" fill="none" stroke="#ff3333" stroke-width="1" opacity="0.9"/>
-                    <ellipse cx="38" cy="56" rx="2" ry="1.5" fill="#ffdddd" opacity="0.7"/>
-                    <path d="M32 50 Q32 48 40 45 Q50 43 60 45 Q68 48 68 50" stroke="#c77878" stroke-width="2.5" fill="none" opacity="0.7"/>
-                    <path d="M32 50 Q32 52 40 55 Q50 57 60 55 Q68 52 68 50" stroke="#c77878" stroke-width="2.5" fill="none" opacity="0.7"/>
-                </svg>
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="ferida2c" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" style="stop-color:#ff7f7f;stop-opacity:0.9" />
+                                <stop offset="70%" style="stop-color:#ff4444;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#cc0000;stop-opacity:0.7" />
+                            </radialGradient>
+                        </defs>
+                        <ellipse cx="50" cy="52" rx="18" ry="16" fill="#F5B8B8" opacity="0.7"/>
+                        <path d="M35 50 Q35 42 42 38 Q50 36 58 38 Q65 42 65 50" fill="#f4a9a9" opacity="0.8"/>
+                        <ellipse cx="50" cy="46" rx="7" ry="6" fill="url(#ferida2c)"/>
+                        <ellipse cx="50" cy="46" rx="7" ry="6" fill="none" stroke="#ff3333" stroke-width="1.2" opacity="0.9"/>
+                        <ellipse cx="50" cy="46" rx="3.5" ry="3" fill="#ffdddd" opacity="0.8"/>
+                        <ellipse cx="38" cy="56" rx="4.5" ry="3.5" fill="url(#ferida2c)"/>
+                        <ellipse cx="38" cy="56" rx="4.5" ry="3.5" fill="none" stroke="#ff3333" stroke-width="1" opacity="0.9"/>
+                        <ellipse cx="38" cy="56" rx="2" ry="1.5" fill="#ffdddd" opacity="0.7"/>
+                        <path d="M32 50 Q32 48 40 45 Q50 43 60 45 Q68 48 68 50" stroke="#c77878" stroke-width="2.5" fill="none" opacity="0.7"/>
+                        <path d="M32 50 Q32 52 40 55 Q50 57 60 55 Q68 52 68 50" stroke="#c77878" stroke-width="2.5" fill="none" opacity="0.7"/>
+                    </svg>
+                </div>
+                <h3>Aftas e Úlceras</h3>
+                <p>Feridas dolorosas na boca. Tratamentos tópicos aceleram cicatrização e aliviam dor.</p>
             </div>
-            <h3>Aftas e Úlceras</h3>
-            <p>Feridas dolorosas na boca. Tratamentos tópicos aceleram cicatrização e aliviam dor.</p>
-        </div>
 
-        <div class="problema-card problema-card-mobile slide-in-card">
-            <div class="problema-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="dentGradient5c" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <ellipse cx="50" cy="68" rx="24" ry="10" fill="#d48080"/>
-                    <path d="M28 32 Q28 24 36 22 Q43 24 43 32 L43 60 Q43 66 36 67 Q28 66 28 60 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" transform="skewX(-5) translateX(-2)"/>
-                    <path d="M40 28 Q40 20 50 18 Q60 20 60 28 L60 62 Q60 68 50 69 Q40 68 40 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5"/>
-                    <path d="M58 32 Q58 24 65 22 Q72 24 72 32 L72 62 Q72 67 65 68 Q58 67 58 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" opacity="0.95"/>
-                    <path d="M70 36 Q70 28 76 26 Q82 28 82 36 L82 62 Q82 66 76 67 Q70 66 70 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" transform="skewX(5) translateX(2)" opacity="0.9"/>
-                    <path d="M32 60 L30 72 Q36 74 36 74" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
-                    <path d="M44 62 L42 75 Q50 76 58 75 L56 62" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
-                    <path d="M62 62 L65 75 Q72 76 78 74" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
-                    <ellipse cx="42" cy="30" rx="2" ry="4" fill="#fff" opacity="0.4"/>
-                    <ellipse cx="52" cy="28" rx="2" ry="4" fill="#fff" opacity="0.4"/>
-                </svg>
+            <div class="problema-card problema-card-mobile slide-in-card">
+                <div class="problema-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dentGradient5c" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <ellipse cx="50" cy="68" rx="24" ry="10" fill="#d48080"/>
+                        <path d="M28 32 Q28 24 36 22 Q43 24 43 32 L43 60 Q43 66 36 67 Q28 66 28 60 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" transform="skewX(-5) translateX(-2)"/>
+                        <path d="M40 28 Q40 20 50 18 Q60 20 60 28 L60 62 Q60 68 50 69 Q40 68 40 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5"/>
+                        <path d="M58 32 Q58 24 65 22 Q72 24 72 32 L72 62 Q72 67 65 68 Q58 67 58 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" opacity="0.95"/>
+                        <path d="M70 36 Q70 28 76 26 Q82 28 82 36 L82 62 Q82 66 76 67 Q70 66 70 62 Z" fill="url(#dentGradient5c)" stroke="#c0c0c0" stroke-width="1.5" transform="skewX(5) translateX(2)" opacity="0.9"/>
+                        <path d="M32 60 L30 72 Q36 74 36 74" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
+                        <path d="M44 62 L42 75 Q50 76 58 75 L56 62" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
+                        <path d="M62 62 L65 75 Q72 76 78 74" fill="#d4a574" stroke="#c4975c" stroke-width="0.8" opacity="0.8"/>
+                        <ellipse cx="42" cy="30" rx="2" ry="4" fill="#fff" opacity="0.4"/>
+                        <ellipse cx="52" cy="28" rx="2" ry="4" fill="#fff" opacity="0.4"/>
+                    </svg>
+                </div>
+                <h3>Alinhamento Incorreto</h3>
+                <p>Dentes tortos ou desalinhados. Alinhadores invisíveis corrigem de forma discreta.</p>
             </div>
-            <h3>Alinhamento Incorreto</h3>
-            <p>Dentes tortos ou desalinhados. Alinhadores invisíveis corrigem de forma discreta.</p>
         </div>
+        <button class="carousel-btn carousel-next" data-carousel="problemas-carousel">›</button>
     </div>
 </section>
 
@@ -387,8 +391,10 @@
         <p class="slide-in-text">Somos uma clínica odontológica moderna com mais de 15 anos de experiência, dedicada a oferecer o melhor cuidado odontológico com tecnologia de ponta e profissionais altamente qualificados.</p>
         <p class="slide-in-text">Nossa missão é transformar sorrisos e mudar vidas através de tratamentos personalizados e humanizados, com foco em conforto, segurança e resultados extraordinários.</p>
     </div>
-    <div class="sobre-image">
-        <img src="https://i.postimg.cc/63fKZj3y/IMG-1229.jpg" alt="Clínica SmileCare">
+    <div class="sobre-image-wrapper">
+        <div class="sobre-image">
+            <img src="https://i.postimg.cc/63fKZj3y/IMG-1229.jpg" alt="Clínica SmileCare">
+        </div>
     </div>
 </section>
 
@@ -436,45 +442,49 @@
         </div>
     </div>
 
-    <div class="planos-carousel">
-        <div class="plano-card slide-in-card">
-            <div class="plano-nome">Básico</div>
-            <div class="plano-preco">R$ 99<span>/mês</span></div>
-            <p class="plano-descricao">Perfeito para quem quer cuidar da higiene básica.</p>
-            <ul class="plano-beneficios">
-                <li>2 Consultas anuais</li>
-                <li>1 Limpeza anual</li>
-                <li>Desconto em procedimentos</li>
-            </ul>
-            <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Básico!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
-        </div>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-prev" data-carousel="planos-carousel">‹</button>
+        <div class="planos-carousel" id="planos-carousel">
+            <div class="plano-card slide-in-card">
+                <div class="plano-nome">Básico</div>
+                <div class="plano-preco">R$ 99<span>/mês</span></div>
+                <p class="plano-descricao">Perfeito para quem quer cuidar da higiene básica.</p>
+                <ul class="plano-beneficios">
+                    <li>2 Consultas anuais</li>
+                    <li>1 Limpeza anual</li>
+                    <li>Desconto em procedimentos</li>
+                </ul>
+                <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Básico!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
+            </div>
 
-        <div class="plano-card slide-in-card">
-            <div class="plano-nome">Profissional</div>
-            <div class="plano-preco">R$ 199<span>/mês</span></div>
-            <p class="plano-descricao">Cobertura completa para sua saúde bucal.</p>
-            <ul class="plano-beneficios">
-                <li>4 Consultas anuais</li>
-                <li>2 Limpezas anuais</li>
-                <li>Desconto 30% procedimentos</li>
-                <li>Radiografia digital</li>
-            </ul>
-            <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Profissional!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
-        </div>
+            <div class="plano-card slide-in-card">
+                <div class="plano-nome">Profissional</div>
+                <div class="plano-preco">R$ 199<span>/mês</span></div>
+                <p class="plano-descricao">Cobertura completa para sua saúde bucal.</p>
+                <ul class="plano-beneficios">
+                    <li>4 Consultas anuais</li>
+                    <li>2 Limpezas anuais</li>
+                    <li>Desconto 30% procedimentos</li>
+                    <li>Radiografia digital</li>
+                </ul>
+                <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Profissional!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
+            </div>
 
-        <div class="plano-card slide-in-card">
-            <div class="plano-nome">Premium</div>
-            <div class="plano-preco">R$ 299<span>/mês</span></div>
-            <p class="plano-descricao">Máxima proteção e conforto.</p>
-            <ul class="plano-beneficios">
-                <li>Consultas ilimitadas</li>
-                <li>4 Limpezas anuais</li>
-                <li>Desconto 50% procedimentos</li>
-                <li>Clareamento anual grátis</li>
-                <li>Atendimento prioritário</li>
-            </ul>
-            <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Premium!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
+            <div class="plano-card slide-in-card">
+                <div class="plano-nome">Premium</div>
+                <div class="plano-preco">R$ 299<span>/mês</span></div>
+                <p class="plano-descricao">Máxima proteção e conforto.</p>
+                <ul class="plano-beneficios">
+                    <li>Consultas ilimitadas</li>
+                    <li>4 Limpezas anuais</li>
+                    <li>Desconto 50% procedimentos</li>
+                    <li>Clareamento anual grátis</li>
+                    <li>Atendimento prioritário</li>
+                </ul>
+                <a href="https://wa.me/5583991816152?text=Olá!%20Tenho%20interesse%20no%20plano%20Premium!" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Contratar</a>
+            </div>
         </div>
+        <button class="carousel-btn carousel-next" data-carousel="planos-carousel">›</button>
     </div>
 </section>
 
@@ -606,167 +616,175 @@
         </div>
     </div>
 
-    <div class="beneficios-carousel">
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M35,25 Q35,20 40,20 L60,20 Q65,20 65,25 L65,40 Q65,50 60,55 L40,55 Q35,50 35,40 Z" />
-                        <ellipse cx="50" cy="20" rx="8" ry="5" opacity="0.7"/>
-                        <rect x="25" y="35" width="8" height="20" rx="2" opacity="0.6"/>
-                        <rect x="67" y="35" width="8" height="20" rx="2" opacity="0.6"/>
-                        <circle cx="50" cy="15" r="3" fill="#00a8cc" opacity="0.8"/>
-                        <path d="M65,30 Q75,25 80,20" stroke-width="1.2" opacity="0.7"/>
-                        <circle cx="82" cy="18" r="4" opacity="0.5"/>
-                        <ellipse cx="50" cy="62" rx="10" ry="4" opacity="0.6"/>
-                    </g>
-                </svg>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-prev" data-carousel="beneficios-carousel">‹</button>
+        <div class="beneficios-carousel" id="beneficios-carousel">
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M35,25 Q35,20 40,20 L60,20 Q65,20 65,25 L65,40 Q65,50 60,55 L40,55 Q35,50 35,40 Z" />
+                            <ellipse cx="50" cy="20" rx="8" ry="5" opacity="0.7"/>
+                            <rect x="25" y="35" width="8" height="20" rx="2" opacity="0.6"/>
+                            <rect x="67" y="35" width="8" height="20" rx="2" opacity="0.6"/>
+                            <circle cx="50" cy="15" r="3" fill="#00a8cc" opacity="0.8"/>
+                            <path d="M65,30 Q75,25 80,20" stroke-width="1.2" opacity="0.7"/>
+                            <circle cx="82" cy="18" r="4" opacity="0.5"/>
+                            <ellipse cx="50" cy="62" rx="10" ry="4" opacity="0.6"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Tecnologia Avançada</h3>
+                <p>Equipamentos de última geração para diagnóstico preciso e tratamento eficaz com segurança máxima.</p>
             </div>
-            <h3>Tecnologia Avançada</h3>
-            <p>Equipamentos de última geração para diagnóstico preciso e tratamento eficaz com segurança máxima.</p>
-        </div>
 
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="50" cy="25" r="8" />
-                        <path d="M47,35 L53,35 L53,50 L47,50 Z" />
-                        <path d="M42,40 L47,40 M53,40 L58,40" stroke-width="1.2"/>
-                        <rect x="38" y="15" width="18" height="12" rx="1.5" opacity="0.8"/>
-                        <line x1="38" y1="19" x2="56" y2="19" opacity="0.6" stroke-width="0.8"/>
-                        <line x1="38" y1="22" x2="52" y2="22" opacity="0.5" stroke-width="0.8"/>
-                        <circle cx="65" cy="28" r="2" fill="#00a8cc" opacity="0.7"/>
-                        <circle cx="68" cy="22" r="1.5" fill="#00d9ff" opacity="0.6"/>
-                        <circle cx="62" cy="18" r="1.5" fill="#00d9ff" opacity="0.6"/>
-                        <line x1="35" y1="58" x2="65" y2="58" stroke-width="1" opacity="0.5"/>
-                    </g>
-                </svg>
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="50" cy="25" r="8" />
+                            <path d="M47,35 L53,35 L53,50 L47,50 Z" />
+                            <path d="M42,40 L47,40 M53,40 L58,40" stroke-width="1.2"/>
+                            <rect x="38" y="15" width="18" height="12" rx="1.5" opacity="0.8"/>
+                            <line x1="38" y1="19" x2="56" y2="19" opacity="0.6" stroke-width="0.8"/>
+                            <line x1="38" y1="22" x2="52" y2="22" opacity="0.5" stroke-width="0.8"/>
+                            <circle cx="65" cy="28" r="2" fill="#00a8cc" opacity="0.7"/>
+                            <circle cx="68" cy="22" r="1.5" fill="#00d9ff" opacity="0.6"/>
+                            <circle cx="62" cy="18" r="1.5" fill="#00d9ff" opacity="0.6"/>
+                            <line x1="35" y1="58" x2="65" y2="58" stroke-width="1" opacity="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Profissionais Experientes</h3>
+                <p>Equipe certificada e especializada em diferentes áreas da odontologia moderna e inovadora.</p>
             </div>
-            <h3>Profissionais Experientes</h3>
-            <p>Equipe certificada e especializada em diferentes áreas da odontologia moderna e inovadora.</p>
-        </div>
 
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,65 C30,50 20,40 20,30 C20,20 28,15 35,15 C42,15 50,22 50,22 C50,22 58,15 65,15 C72,15 80,20 80,30 C80,40 70,50 50,65 Z" fill="#00a8cc" opacity="0.2"/>
-                        <path d="M50,65 C30,50 20,40 20,30 C20,20 28,15 35,15 C42,15 50,22 50,22 C50,22 58,15 65,15 C72,15 80,20 80,30 C80,40 70,50 50,65 Z" stroke="#00a8cc"/>
-                        <circle cx="40" cy="32" r="2.5" fill="#00a8cc" opacity="0.7"/>
-                        <circle cx="60" cy="32" r="2.5" fill="#00a8cc" opacity="0.7"/>
-                        <path d="M40,42 Q50,48 60,42" stroke-width="1.2" opacity="0.8"/>
-                    </g>
-                </svg>
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50,65 C30,50 20,40 20,30 C20,20 28,15 35,15 C42,15 50,22 50,22 C50,22 58,15 65,15 C72,15 80,20 80,30 C80,40 70,50 50,65 Z" fill="#00a8cc" opacity="0.2"/>
+                            <path d="M50,65 C30,50 20,40 20,30 C20,20 28,15 35,15 C42,15 50,22 50,22 C50,22 58,15 65,15 C72,15 80,20 80,30 C80,40 70,50 50,65 Z" stroke="#00a8cc"/>
+                            <circle cx="40" cy="32" r="2.5" fill="#00a8cc" opacity="0.7"/>
+                            <circle cx="60" cy="32" r="2.5" fill="#00a8cc" opacity="0.7"/>
+                            <path d="M40,42 Q50,48 60,42" stroke-width="1.2" opacity="0.8"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Atendimento Premium</h3>
+                <p>Ambiente acolhedor e confortável para sua melhor experiência de saúde bucal e bem-estar.</p>
             </div>
-            <h3>Atendimento Premium</h3>
-            <p>Ambiente acolhedor e confortável para sua melhor experiência de saúde bucal e bem-estar.</p>
-        </div>
 
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="50" cy="50" r="28" />
-                        <line x1="50" y1="22" x2="50" y2="18" stroke-width="2" opacity="0.7"/>
-                        <line x1="78" y1="50" x2="82" y2="50" stroke-width="2" opacity="0.7"/>
-                        <line x1="50" y1="78" x2="50" y2="82" stroke-width="2" opacity="0.7"/>
-                        <line x1="22" y1="50" x2="18" y2="50" stroke-width="2" opacity="0.7"/>
-                        <line x1="50" y1="50" x2="50" y2="32" stroke-width="2" />
-                        <line x1="50" y1="50" x2="68" y2="50" stroke-width="2" />
-                        <path d="M72,40 L78,34" opacity="0.6"/>
-                        <path d="M72,60 L78,66" opacity="0.6"/>
-                    </g>
-                </svg>
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="50" cy="50" r="28" />
+                            <line x1="50" y1="22" x2="50" y2="18" stroke-width="2" opacity="0.7"/>
+                            <line x1="78" y1="50" x2="82" y2="50" stroke-width="2" opacity="0.7"/>
+                            <line x1="50" y1="78" x2="50" y2="82" stroke-width="2" opacity="0.7"/>
+                            <line x1="22" y1="50" x2="18" y2="50" stroke-width="2" opacity="0.7"/>
+                            <line x1="50" y1="50" x2="50" y2="32" stroke-width="2" />
+                            <line x1="50" y1="50" x2="68" y2="50" stroke-width="2" />
+                            <path d="M72,40 L78,34" opacity="0.6"/>
+                            <path d="M72,60 L78,66" opacity="0.6"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Procedimentos Rápidos</h3>
+                <p>Técnicas inovadoras que reduzem tempo de tratamento sem comprometer a qualidade final.</p>
             </div>
-            <h3>Procedimentos Rápidos</h3>
-            <p>Técnicas inovadoras que reduzem tempo de tratamento sem comprometer a qualidade final.</p>
-        </div>
 
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,15 L72,28 L72,50 Q72,70 50,82 Q28,70 28,50 L28,28 Z" />
-                        <path d="M40,50 L48,58 L62,42" stroke-width="2.5" />
-                        <line x1="45" y1="22" x2="55" y2="22" stroke-width="2" opacity="0.8"/>
-                    </g>
-                </svg>
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M50,15 L72,28 L72,50 Q72,70 50,82 Q28,70 28,50 L28,28 Z" />
+                            <path d="M40,50 L48,58 L62,42" stroke-width="2.5" />
+                            <line x1="45" y1="22" x2="55" y2="22" stroke-width="2" opacity="0.8"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Segurança Garantida</h3>
+                <p>Protocolos de esterilização rigorosos e cuidado máximo com sua saúde e bem-estar geral.</p>
             </div>
-            <h3>Segurança Garantida</h3>
-            <p>Protocolos de esterilização rigorosos e cuidado máximo com sua saúde e bem-estar geral.</p>
-        </div>
 
-        <div class="card card-mobile slide-in-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="20" y="30" width="60" height="40" rx="4" />
-                        <rect x="30" y="38" width="12" height="12" rx="1.5" opacity="0.6"/>
-                        <rect x="20" y="58" width="60" height="6" rx="1" opacity="0.5"/>
-                        <line x1="48" y1="48" x2="58" y2="48" opacity="0.6"/>
-                        <line x1="48" y1="52" x2="58" y2="52" opacity="0.6"/>
-                        <circle cx="68" cy="44" r="5" opacity="0.4"/>
-                        <line x1="68" y1="40" x2="68" y2="48" stroke-width="1" opacity="0.5"/>
-                    </g>
-                </svg>
+            <div class="card card-mobile slide-in-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#00a8cc" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="20" y="30" width="60" height="40" rx="4" />
+                            <rect x="30" y="38" width="12" height="12" rx="1.5" opacity="0.6"/>
+                            <rect x="20" y="58" width="60" height="6" rx="1" opacity="0.5"/>
+                            <line x1="48" y1="48" x2="58" y2="48" opacity="0.6"/>
+                            <line x1="48" y1="52" x2="58" y2="52" opacity="0.6"/>
+                            <circle cx="68" cy="44" r="5" opacity="0.4"/>
+                            <line x1="68" y1="40" x2="68" y2="48" stroke-width="1" opacity="0.5"/>
+                        </g>
+                    </svg>
+                </div>
+                <h3>Preços Acessíveis</h3>
+                <p>Planos de pagamento flexíveis e transparência total nos orçamentos sem surpresas.</p>
             </div>
-            <h3>Preços Acessíveis</h3>
-            <p>Planos de pagamento flexíveis e transparência total nos orçamentos sem surpresas.</p>
         </div>
+        <button class="carousel-btn carousel-next" data-carousel="beneficios-carousel">›</button>
     </div>
 </section>
 
 <section class="testimonios">
     <h2 class="section-title slide-in-title">O Que Nossos Pacientes Dizem</h2>
-    <div class="testimonios-carousel">
-        <div class="testimonial-card slide-in-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"Excelente atendimento! Meu sorriso mudou completamente e minha confiança voltou ao normal. Recomendo para todos!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">JM</div>
-                <div class="author-info">
-                    <h4>João Marques</h4>
-                    <p>Paciente Satisfeito</p>
+    <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-prev" data-carousel="testimonios-carousel">‹</button>
+        <div class="testimonios-carousel" id="testimonios-carousel">
+            <div class="testimonial-card slide-in-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Excelente atendimento! Meu sorriso mudou completamente e minha confiança voltou ao normal. Recomendo para todos!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JM</div>
+                    <div class="author-info">
+                        <h4>João Marques</h4>
+                        <p>Paciente Satisfeito</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="testimonial-card slide-in-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"Profissionais muito atenciosos, técnicas modernas e resultados extraordinários. Muito satisfeita!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">LC</div>
-                <div class="author-info">
-                    <h4>Laura Costa</h4>
-                    <p>Paciente Satisfeita</p>
+            <div class="testimonial-card slide-in-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Profissionais muito atenciosos, técnicas modernas e resultados extraordinários. Muito satisfeita!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LC</div>
+                    <div class="author-info">
+                        <h4>Laura Costa</h4>
+                        <p>Paciente Satisfeita</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="testimonial-card slide-in-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"Ambiente impecável, profissionais qualificados e resultados extraordinários. Voltarei com certeza!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">FB</div>
-                <div class="author-info">
-                    <h4>Felipe Barbosa</h4>
-                    <p>Paciente Satisfeito</p>
+            <div class="testimonial-card slide-in-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Ambiente impecável, profissionais qualificados e resultados extraordinários. Voltarei com certeza!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">FB</div>
+                    <div class="author-info">
+                        <h4>Felipe Barbosa</h4>
+                        <p>Paciente Satisfeito</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="testimonial-card slide-in-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"Melhor experiência em consultório que já tive. Me senti muito bem cuidado do começo ao fim!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">MR</div>
-                <div class="author-info">
-                    <h4>Mariana Rocha</h4>
-                    <p>Paciente Satisfeita</p>
+            <div class="testimonial-card slide-in-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Melhor experiência em consultório que já tive. Me senti muito bem cuidado do começo ao fim!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <h4>Mariana Rocha</h4>
+                        <p>Paciente Satisfeita</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <button class="carousel-btn carousel-next" data-carousel="testimonios-carousel">›</button>
     </div>
 </section>
 
