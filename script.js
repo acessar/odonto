@@ -1,126 +1,5 @@
 // ===============================================
-// CARROSSÉIS AUTOMÁTICOS - CONFIGURAÇÃO GERAL
-// ===============================================
-const carouselConfig = {
-    autoplayInterval: 3000,
-    transitionDuration: 600
-};
-
-// ===============================================
-// GERENCIADOR DE CARROSSEL AUTOMÁTICO
-// ===============================================
-class CarouselManager {
-    constructor(carouselId, autoplay = true) {
-        this.carousel = document.getElementById(carouselId);
-        this.carouselId = carouselId;
-        this.autoplay = autoplay;
-        this.currentIndex = 0;
-        this.autoplayInterval = null;
-        this.isScrolling = false;
-        
-        if (this.carousel) {
-            this.init();
-        }
-    }
-
-    init() {
-        if (this.autoplay) {
-            this.startAutoplay();
-        }
-
-        // Parar autoplay ao interagir manualmente
-        this.carousel.addEventListener('scroll', () => {
-            this.isScrolling = true;
-            clearInterval(this.autoplayInterval);
-            
-            // Retomar autoplay após 5 segundos de inatividade
-            setTimeout(() => {
-                this.isScrolling = false;
-                if (this.autoplay) {
-                    this.startAutoplay();
-                }
-            }, 5000);
-        });
-
-        // Touch events para sincronizar com botões
-        this.carousel.addEventListener('scroll', () => this.updateButtonStates());
-    }
-
-    startAutoplay() {
-        clearInterval(this.autoplayInterval);
-        this.autoplayInterval = setInterval(() => {
-            if (!this.isScrolling) {
-                this.nextSlide();
-            }
-        }, carouselConfig.autoplayInterval);
-    }
-
-    nextSlide() {
-        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
-        if (items.length === 0) return;
-
-        this.currentIndex = (this.currentIndex + 1) % items.length;
-        const item = items[this.currentIndex];
-        
-        item.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'
-        });
-
-        this.updateButtonStates();
-    }
-
-    prevSlide() {
-        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
-        if (items.length === 0) return;
-
-        this.currentIndex = (this.currentIndex - 1 + items.length) % items.length;
-        const item = items[this.currentIndex];
-        
-        item.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'start'
-        });
-
-        this.updateButtonStates();
-    }
-
-    updateButtonStates() {
-        const buttons = document.querySelectorAll(`.carousel-btn[data-carousel="${this.carouselId}"]`);
-        const items = this.carousel.querySelectorAll('[scroll-snap-stop="always"]');
-        
-        if (items.length === 0) return;
-
-        // Detectar qual item está visível
-        let visibleIndex = 0;
-        items.forEach((item, index) => {
-            const rect = item.getBoundingClientRect();
-            const carouselRect = this.carousel.getBoundingClientRect();
-            
-            if (rect.left >= carouselRect.left && rect.left < carouselRect.right) {
-                visibleIndex = index;
-            }
-        });
-
-        this.currentIndex = visibleIndex;
-
-        // Atualizar estados dos botões
-        buttons.forEach(btn => {
-            if (btn.classList.contains('carousel-prev')) {
-                btn.disabled = visibleIndex === 0;
-                btn.style.opacity = visibleIndex === 0 ? '0.3' : '0.7';
-            } else if (btn.classList.contains('carousel-next')) {
-                btn.disabled = visibleIndex === items.length - 1;
-                btn.style.opacity = visibleIndex === items.length - 1 ? '0.3' : '0.7';
-            }
-        });
-    }
-}
-
-// ===============================================
-// CARROSSEL HERO (COM SLIDE AUTOMÁTICO)
+// CARROSSEL AUTOMÁTICO - HERO
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
     const heroSlides = document.querySelectorAll('.hero-slide');
@@ -140,53 +19,74 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (heroSlides.length > 0) {
-        setInterval(nextSlide, carouselConfig.autoplayInterval);
+        setInterval(nextSlide, 5000);
     }
 });
 
 // ===============================================
-// INICIALIZAR TODOS OS CARROSSEIS
+// CARROSSEIS AUTOMÁTICOS - CARDS (3 segundos)
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
-    // Criar instâncias de gerenciadores de carrossel
     const carousels = [
-        new CarouselManager('problemas-carousel', true),
-        new CarouselManager('planos-carousel', true),
-        new CarouselManager('beneficios-carousel', true),
-        new CarouselManager('testimonios-carousel', true)
+        { id: 'problemaCarousel', navAttr: 'problema' },
+        { id: 'planoCarousel', navAttr: 'plano' },
+        { id: 'beneficioCarousel', navAttr: 'beneficio' },
+        { id: 'testemunhoCarousel', navAttr: 'testemunho' }
     ];
-
-    // ===============================================
-    // BOTÕES DE NAVEGAÇÃO DOS CARROSSEIS
-    // ===============================================
-    const prevButtons = document.querySelectorAll('.carousel-prev');
-    const nextButtons = document.querySelectorAll('.carousel-next');
-
-    prevButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const carouselId = btn.getAttribute('data-carousel');
-            const manager = carousels.find(c => c.carouselId === carouselId);
-            if (manager) {
-                manager.prevSlide();
-            }
-        });
-    });
-
-    nextButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const carouselId = btn.getAttribute('data-carousel');
-            const manager = carousels.find(c => c.carouselId === carouselId);
-            if (manager) {
-                manager.nextSlide();
-            }
-        });
-    });
-
-    // Inicializar estados dos botões
+    
     carousels.forEach(carousel => {
-        carousel.updateButtonStates();
+        const carouselEl = document.getElementById(carousel.id);
+        if (!carouselEl) return;
+        
+        const cards = carouselEl.querySelectorAll('.problema-card, .plano-card, .card, .testimonial-card');
+        if (cards.length === 0) return;
+        
+        let currentIndex = 0;
+        const totalCards = cards.length;
+        
+        function updateCarousel() {
+            // Desabilita scroll para forçar nossa navegação
+            const scrollLeft = (100 / totalCards) * currentIndex;
+            carouselEl.style.scrollBehavior = 'smooth';
+            carouselEl.scrollLeft = (cards[0].offsetWidth + 24) * currentIndex;
+        }
+        
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        }
+        
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        }
+        
+        // Autoplay a cada 3 segundos
+        setInterval(nextCard, 3000);
+        
+        // Botões de navegação
+        const prevBtn = document.querySelector(`.carousel-prev[data-carousel="${carousel.navAttr}"]`);
+        const nextBtn = document.querySelector(`.carousel-next[data-carousel="${carousel.navAttr}"]`);
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevCard);
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextCard);
+        }
+        
+        // Sincronizar com scroll manual
+        let scrollTimeout;
+        carouselEl.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const scrollLeft = carouselEl.scrollLeft;
+                const cardWidth = cards[0].offsetWidth + 24;
+                currentIndex = Math.round(scrollLeft / cardWidth);
+                if (currentIndex >= totalCards) currentIndex = totalCards - 1;
+                if (currentIndex < 0) currentIndex = 0;
+            }, 150);
+        });
     });
 });
 
@@ -427,38 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===============================================
-// PARALLAX EFFECT
-// ===============================================
-document.addEventListener('DOMContentLoaded', function() {
-    let scrollPosition = 0;
-    
-    window.addEventListener('scroll', () => {
-        scrollPosition = window.scrollY;
-        
-        // Parallax no hero
-        const heroBg = document.querySelector('.hero-overlay');
-        if (heroBg) {
-            heroBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-        }
-        
-        // Parallax na seção sobre (FIXO - sem parallax vertical)
-        const sobreImageWrapper = document.querySelector('.sobre-image-wrapper');
-        if (sobreImageWrapper && isElementInViewport(sobreImageWrapper)) {
-            // Manter a imagem sempre alinhada ao topo do wrapper
-            sobreImageWrapper.style.transform = 'none';
-        }
-    });
-});
-
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.bottom >= 0
-    );
-}
-
-// ===============================================
 // ANIMAÇÃO DE PULSE NOS BOTÕES PRIMÁRIOS
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -548,19 +416,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===============================================
-// ANALYTICS E TRACKING (Adicione seu código aqui)
-// ===============================================
-// Exemplo: Google Analytics
-// window.dataLayer = window.dataLayer || [];
-// function gtag(){dataLayer.push(arguments);}
-// gtag('js', new Date());
-
-// ===============================================
 // LOG DE SUCESSO
 // ===============================================
 console.log('%c✅ SmileCare Premium JavaScript Carregado com Sucesso!', 'color: #00a8cc; font-size: 14px; font-weight: bold;');
-console.log('%c✅ Carrosseis automáticos funcionando (3s)!', 'color: #00d9ff; font-size: 12px;');
-console.log('%c✅ Botões de navegação sincronizados!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrossel Hero funcionando!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrosseis automáticos (3s) funcionando!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Setas de navegação sincronizadas!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ FAQ Accordion funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Menu Hamburger funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Animações responsivas ativas!', 'color: #00d9ff; font-size: 12px;');

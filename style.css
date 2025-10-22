@@ -264,51 +264,6 @@ nav a:hover::after {
 }
 
 /* =============================================== */
-/* CARROSSEL BUTTONS */
-/* =============================================== */
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.carousel-btn {
-    display: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(0, 168, 204, 0.15);
-    color: var(--acento);
-    font-size: 24px;
-    cursor: pointer;
-    transition: var(--transicao);
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 168, 204, 0.3);
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.carousel-btn:active {
-    transform: scale(0.95);
-}
-
-.carousel-prev {
-    order: -1;
-}
-
-.carousel-next {
-    order: 3;
-}
-
-/* =============================================== */
 /* HERO SECTION */
 /* =============================================== */
 .hero {
@@ -484,14 +439,6 @@ nav a:hover::after {
     z-index: 1;
 }
 
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: clamp(2rem, 3vw, 3rem);
-}
-
 .problemas-carousel {
     display: none;
     gap: 1.5rem;
@@ -502,7 +449,6 @@ nav a:hover::after {
     position: relative;
     z-index: 1;
     -webkit-overflow-scrolling: touch;
-    flex: 1;
 }
 
 .problemas-carousel::-webkit-scrollbar {
@@ -640,17 +586,9 @@ nav a:hover::after {
     margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
 }
 
-.sobre-image-wrapper {
-    width: 100%;
-    height: clamp(300px, 40vh, 500px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .sobre-image {
     width: 100%;
-    height: 100%;
+    height: clamp(300px, 40vh, 500px);
     background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
     border-radius: 20px;
     display: flex;
@@ -717,7 +655,6 @@ nav a:hover::after {
     position: relative;
     z-index: 1;
     -webkit-overflow-scrolling: touch;
-    flex: 1;
 }
 
 .planos-carousel::-webkit-scrollbar {
@@ -873,7 +810,6 @@ nav a:hover::after {
     position: relative;
     z-index: 1;
     -webkit-overflow-scrolling: touch;
-    flex: 1;
 }
 
 .beneficios-carousel::-webkit-scrollbar {
@@ -1008,7 +944,6 @@ nav a:hover::after {
     z-index: 1;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    flex: 1;
 }
 
 .testimonios-carousel::-webkit-scrollbar {
@@ -1175,6 +1110,57 @@ nav a:hover::after {
 }
 
 /* =============================================== */
+/* CAROUSEL NAVIGATION BUTTONS */
+/* =============================================== */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 168, 204, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transicao);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 217, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 15px;
+}
+
+.carousel-next {
+    right: 15px;
+}
+
+.carousel-prev::before {
+    content: '‹';
+    font-size: 28px;
+    color: var(--branco);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.carousel-next::before {
+    content: '›';
+    font-size: 28px;
+    color: var(--branco);
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* =============================================== */
 /* FOOTER */
 /* =============================================== */
 footer {
@@ -1265,7 +1251,7 @@ footer p {
         padding: clamp(2.5rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2rem);
     }
 
-    .sobre-image-wrapper {
+    .sobre-image {
         height: clamp(250px, 35vh, 350px);
     }
 
@@ -1275,6 +1261,7 @@ footer p {
 
     .beneficios-carousel {
         display: flex;
+        position: relative;
     }
 
     .planos-grid {
@@ -1283,6 +1270,7 @@ footer p {
 
     .planos-carousel {
         display: flex;
+        position: relative;
     }
 
     .problemas-grid {
@@ -1291,9 +1279,10 @@ footer p {
 
     .problemas-carousel {
         display: flex;
+        position: relative;
     }
 
-    .carousel-btn {
+    .carousel-nav {
         display: flex;
     }
 }
@@ -1309,10 +1298,6 @@ footer p {
 
     .problemas-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .carousel-btn {
-        display: flex;
     }
 }
 
