@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let currentIndex = 0;
         const totalCards = cards.length;
+        let autoplayInterval = null;
+        let isVisible = false;
         
         function updateCarousel() {
             // Desabilita scroll para forçar nossa navegação
@@ -61,8 +63,38 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
         }
         
-        // Autoplay a cada 6 segundos
-        setInterval(nextCard, 6000);
+        function startAutoplay() {
+            if (!isVisible && autoplayInterval === null) {
+                autoplayInterval = setInterval(nextCard, 6000);
+            }
+        }
+        
+        function stopAutoplay() {
+            if (autoplayInterval !== null) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        }
+        
+        // Intersection Observer para detectar quando o carrossel entra na tela
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isVisible = true;
+                    startAutoplay();
+                } else {
+                    isVisible = false;
+                    stopAutoplay();
+                }
+            });
+        }, observerOptions);
+        
+        observer.observe(carouselEl);
         
         // Botões de navegação
         const prevBtn = document.querySelector(`.carousel-prev[data-carousel="${carousel.navAttr}"]`);
@@ -417,7 +449,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===============================================
 console.log('%c✅ SmileCare Premium JavaScript Carregado com Sucesso!', 'color: #00a8cc; font-size: 14px; font-weight: bold;');
 console.log('%c✅ Carrossel Hero funcionando (5s)!', 'color: #00d9ff; font-size: 12px;');
-console.log('%c✅ Carrosseis automáticos (6s) funcionando!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrosseis automáticos (6s) com detecção de visibilidade!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Autoplay inicia apenas quando usuário está na seção!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Setas de navegação sincronizadas!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ FAQ Accordion funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Menu Hamburger funcionando!', 'color: #00d9ff; font-size: 12px;');
