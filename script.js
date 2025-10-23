@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===============================================
-// CARROSSEIS AUTOMÁTICOS - CARDS (3 segundos)
+// CARROSSEIS AUTOMÁTICOS - CARDS (6 segundos)
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
     const carousels = [
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
         }
         
-        // Autoplay a cada 3 segundos
-        setInterval(nextCard, 3000);
+        // Autoplay a cada 6 segundos
+        setInterval(nextCard, 6000);
         
         // Botões de navegação
         const prevBtn = document.querySelector(`.carousel-prev[data-carousel="${carousel.navAttr}"]`);
@@ -207,26 +207,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===============================================
-// SCROLL ANIMATIONS - INTERSECTION OBSERVER
+// INTERSECTION OBSERVER PARA ANIMAÇÕES
 // ===============================================
 document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
+        entries.forEach(element => {
+            if (element.isIntersecting) {
+                element.target.style.opacity = '1';
+                element.target.style.animation = 'slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 
-                // Aplicar animações baseadas no tipo de elemento
-                if (element.classList.contains('slide-in-card')) {
-                    element.style.animation = 'slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                } else if (element.classList.contains('slide-in-title')) {
-                    element.style.animation = 'slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                } else if (element.classList.contains('slide-in-text')) {
-                    element.style.animation = 'slideInUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s backwards';
+                // Verificar se tem transformação de entrada
+                if (element.target.classList.contains('slide-in-card')) {
+                    element.target.style.animation = 'slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 }
                 
                 observer.unobserve(element);
@@ -419,8 +416,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // LOG DE SUCESSO
 // ===============================================
 console.log('%c✅ SmileCare Premium JavaScript Carregado com Sucesso!', 'color: #00a8cc; font-size: 14px; font-weight: bold;');
-console.log('%c✅ Carrossel Hero funcionando!', 'color: #00d9ff; font-size: 12px;');
-console.log('%c✅ Carrosseis automáticos (3s) funcionando!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrossel Hero funcionando (5s)!', 'color: #00d9ff; font-size: 12px;');
+console.log('%c✅ Carrosseis automáticos (6s) funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Setas de navegação sincronizadas!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ FAQ Accordion funcionando!', 'color: #00d9ff; font-size: 12px;');
 console.log('%c✅ Menu Hamburger funcionando!', 'color: #00d9ff; font-size: 12px;');
